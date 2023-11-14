@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.android.extensions'
+    id "org.jetbrains.kotlin.plugin.noarg" version "1.7.20"
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.7.20"
+}
+
+android {
+    namespace 'com.dataoceanai.codebasekotlin'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.dataoceanai.codebasekotlin"
+        minSdk 27
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+noArg {
+    //如果您希望插件从合成构造函数运行初始化逻辑，则启用invokeInitializers选项。缺省情况下，它是禁用的。
+//    invokeInitializers = true
+    annotation("com.dataoceanai.LearnBase.NoArg")
+}
+
+allOpen {
+    annotation("com.dataoceanai.LearnBase.AllOpen")
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    ////添加自定义的malllibrary到app中,业务无关的代码（网络框架，UI框架等）放在malllibrary中，简化APP代码，整洁性
+    ////File->Project Structure->Dependencies->app->+->Module Dependencies->malllibrary->apply->ok
+    implementation project(path: ':malllibrary')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
