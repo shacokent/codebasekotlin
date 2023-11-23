@@ -3,6 +3,8 @@ package com.dataoceanai.malllibrary.global
 import android.os.Handler
 import android.os.Looper
 import com.dataoceanai.malllibrary.util.storage.MemoryStore
+import com.joanzapata.iconify.IconFontDescriptor
+import com.joanzapata.iconify.Iconify
 
 /**
  * 全局配置控制类
@@ -10,6 +12,8 @@ import com.dataoceanai.malllibrary.util.storage.MemoryStore
  *  private constructor()是不能New的
  */
 class Configurator private constructor(){
+
+    private val mIcons  = ArrayList<IconFontDescriptor>()
     /**
      * 线程安全的单例模式
      * 深入学习可以仿照Java写法
@@ -33,6 +37,20 @@ class Configurator private constructor(){
         mStore.addData(GlobalKeys.HANDLER, mHandler)
     }
 
+    private fun intIcons(){
+        if(mIcons.size > 0){
+            val initializer = Iconify.with(mIcons[0]);
+            for(i in 1 until mIcons.size){
+                initializer.with(mIcons[i])
+            }
+        }
+    }
+
+    fun withIcon(descriptor: IconFontDescriptor):Configurator{
+        mIcons.add(descriptor)
+        return this
+    }
+
     /**
      * 访问服务器的API设置
      */
@@ -54,7 +72,9 @@ class Configurator private constructor(){
          * 配置完成设置成true
          */
         mStore.addData(GlobalKeys.IS_CONFIGURE_READY,true)
+        intIcons()
         //下面可以做一些回收动作
+
     }
 
     /**

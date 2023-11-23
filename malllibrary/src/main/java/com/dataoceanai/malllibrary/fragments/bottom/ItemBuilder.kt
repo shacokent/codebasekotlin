@@ -7,7 +7,7 @@ class ItemBuilder {
 
     companion object{
         internal fun builder():ItemBuilder{
-            return builder()
+            return ItemBuilder()
         }
     }
 

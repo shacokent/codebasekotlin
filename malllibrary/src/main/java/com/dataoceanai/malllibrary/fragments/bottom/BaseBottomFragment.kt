@@ -68,6 +68,7 @@ abstract class BaseBottomFragment:MallFragment(), View.OnClickListener {
             val bean = mTabBean[i]
             itemIcon.text = bean.icon
             itemTitle.text = bean.title
+
             if(i == mIndexFragment){
                 itemIcon.setTextColor(mClickedColor)
                 itemTitle.setTextColor(mClickedColor)
@@ -100,7 +101,7 @@ abstract class BaseBottomFragment:MallFragment(), View.OnClickListener {
     override fun onClick(v: View) {
         val tabIndex = v.tag as Int
         changeColor(tabIndex)
-        //展示或隐藏内容
+//        展示或隐藏内容
         supportDelegate.showHideFragment(mItemFragments[tabIndex],mItemFragments[mCurrentFragment])
 //        先后顺序不能错
         mCurrentFragment = tabIndex

@@ -28,6 +28,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -63,4 +66,16 @@ dependencies {
     api('com.joanzapata.iconify:android-iconify-fontawesome:2.2.2',{
         exclude group:'com.android.support'
     })
+//RecyclerView框架工具
+    api "io.github.cymchad:BaseRecyclerViewAdapterHelper4:4.1.0"
+    api('com.choices.divider:RecyclerView_Divider:1.0.0') {
+        exclude group: 'com.android.support'
+    }
+    //轮播图依赖
+//    api 'com.bigkoo:convenientbanner:2.0.5'
+    api 'com.bigkoo:convenientbanner:2.1.5'
+//    viewpager框架工具
+    api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:2.0.24'
+//    网络图片加载库
+    api 'com.github.bumptech.glide:glide:4.16.0'
 }
