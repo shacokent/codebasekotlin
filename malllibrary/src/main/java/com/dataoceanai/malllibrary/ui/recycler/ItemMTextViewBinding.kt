@@ -3,13 +3,13 @@ package com.dataoceanai.malllibrary.ui.recycler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.viewbinding.ViewBinding
 import com.dataoceanai.malllibrary.R
 
 
-class HomeItemViewBinding private constructor(
-    private val rootView: ConstraintLayout,
+class ItemMTextViewBinding private constructor(
+    private val rootView: AppCompatTextView,
 ) : ViewBinding {
 
     override fun getRoot(): View {
@@ -18,16 +18,16 @@ class HomeItemViewBinding private constructor(
 
     companion object {
 
-        fun inflate(inflater: LayoutInflater, parent: ViewGroup?, attachToParent: Boolean): HomeItemViewBinding {
-            val root = inflater.inflate(R.layout.item_home_view, parent, false)
+        fun inflate(inflater: LayoutInflater, parent: ViewGroup?, attachToParent: Boolean): ItemMTextViewBinding {
+            val root = inflater.inflate(R.layout.item_multiple_text, parent, false)
             if (attachToParent) {
                 parent?.addView(root)
             }
             return bind(root)
         }
 
-        fun bind(rootView: View): HomeItemViewBinding {
-            return HomeItemViewBinding(rootView as ConstraintLayout)
+        fun bind(rootView: View): ItemMTextViewBinding {
+            return ItemMTextViewBinding(rootView as AppCompatTextView)
         }
     }
 }

@@ -13,6 +13,7 @@ import com.dataoceanai.malllibrary.net.callback.IError
 import com.dataoceanai.malllibrary.net.callback.IFailure
 import com.dataoceanai.malllibrary.net.callback.ISuccess
 import com.dataoceanai.malllibrary.ui.recycler.MultipleRecyclerAdapter
+import com.mall.example.fragments.index.IndexDataConverter
 import com.mall.library.ui.recycler.BaseDecoration
 
 class indexFragment : BottomItemFragment() {
@@ -29,6 +30,8 @@ class indexFragment : BottomItemFragment() {
     //就是多行的加载数据和UI
     override fun onLazyInitView(savedInstanceState: Bundle?) {
         super.onLazyInitView(savedInstanceState)
+        initRecyclerView()
+        initData()
     }
 
     private fun initRecyclerView(){
@@ -41,7 +44,8 @@ class indexFragment : BottomItemFragment() {
         RestClient.builder().url("index.php").loader(context).success(object : ISuccess {
                 override fun onSuccess(response: String) {
                     Log.d(TAG, "onSuccess: $response")
-                    val adapter = MultipleRecyclerAdapter()
+                    val adapter = MultipleRecyclerAdapter.create(IndexDataConverter().setJsonData(response))
+                    mRecyclerView.adapter = adapter
                 }
             }).failure(object : IFailure {
                 override fun onFailure(t: Throwable) {

@@ -1,12 +1,12 @@
 package com.dataoceanai.malllibrary.ui.recycler
 
 class MultipleEntityBuilder {
-    companion object{
-        private val FIELDS = LinkedHashMap<Any,Any>()
+    companion object {
+        private val FIELDS = LinkedHashMap<Any, Any>()
     }
 
-    init{
-        //先清空上一个数据
+    init {
+        //先清除上一个数据
         FIELDS.clear()
     }
 
@@ -15,17 +15,19 @@ class MultipleEntityBuilder {
         return this
     }
 
-    fun setField(key:Any,value:Any):MultipleEntityBuilder {
-        FIELDS[key] = value
+    fun setField(key: Any, value: Any?): MultipleEntityBuilder {
+        if (value != null) {
+            FIELDS[key] = value
+        }
         return this
     }
 
-    fun setField(map:LinkedHashMap<*,*>):MultipleEntityBuilder {
+    fun setFields(map: LinkedHashMap<*, *>): MultipleEntityBuilder {
         FIELDS.putAll(map)
         return this
     }
 
-    fun build():MultipleItemEntity{
+    fun build(): MultipleItemEntity {
         return MultipleItemEntity(FIELDS)
     }
 }

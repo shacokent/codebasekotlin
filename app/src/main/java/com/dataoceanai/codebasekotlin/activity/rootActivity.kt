@@ -42,6 +42,12 @@ import com.dataoceanai.malllibrary.net.callback.ISuccess
 //}
 
 class rootActivity : ProxyActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
+    }
+
     override fun setRootFragment(): MallFragment {
 //        return TestFragment()
         return MallMainFragment()

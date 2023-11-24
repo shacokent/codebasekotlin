@@ -71,9 +71,12 @@ dependencies {
     api('com.choices.divider:RecyclerView_Divider:1.0.0') {
         exclude group: 'com.android.support'
     }
+    //fastjson解析工具
+    api 'com.alibaba:fastjson:2.0.28'
     //轮播图依赖
 //    api 'com.bigkoo:convenientbanner:2.0.5'
-    api 'com.bigkoo:convenientbanner:2.1.5'
+//    api 'com.bigkoo:convenientbanner:2.1.5'
+    api 'com.youth.banner:banner:1.4.10'
 //    viewpager框架工具
     api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:2.0.24'
 //    网络图片加载库
