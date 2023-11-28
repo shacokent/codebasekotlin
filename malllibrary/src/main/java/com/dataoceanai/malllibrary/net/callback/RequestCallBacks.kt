@@ -36,14 +36,14 @@ class RequestCallBacks (
     private fun onRequestFinish(){
 
         //实际项目要去除，模拟网络请求延迟
-        val delayed = Mall.getConfiguration<Long>(GlobalKeys.LOADER_DELAYED)
-        if(position!=null){
-            HANDER.postDelayed({MallLoader.stopLoding()},delayed)
-        }
-        //实际项目打开注释
+//        val delayed = Mall.getConfiguration<Long>(GlobalKeys.LOADER_DELAYED)
 //        if(position!=null){
-//            HANDER.post { MallLoader.stopLoding() }
+//            HANDER.postDelayed({MallLoader.stopLoding()},delayed)
 //        }
+        //实际项目打开注释
+        if(position!=null){
+            HANDER.post { MallLoader.stopLoding() }
+        }
     }
 
     private val TAG = "RequestCallBacks"

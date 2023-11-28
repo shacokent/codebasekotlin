@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
@@ -140,4 +139,6 @@ open class MultipleRecyclerAdapter(data: List<MultipleItemEntity>) :
             list[position].getItemType()
         }
     }
+
+
 }

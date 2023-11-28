@@ -45,7 +45,7 @@ class rootActivity : ProxyActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide()
+        supportActionBar?.hide()//隐藏标题栏
     }
 
     override fun setRootFragment(): MallFragment {

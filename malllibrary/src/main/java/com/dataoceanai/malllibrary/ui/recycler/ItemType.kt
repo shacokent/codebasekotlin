@@ -5,4 +5,5 @@ object ItemType {
     const val IMAGE = 2
     const val TEXT_IMAGE = 3
     const val BANNER = 4
+    const val VERTICAL_MENU_LIST = 5
 }
