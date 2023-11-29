@@ -1,6 +1,7 @@
 package com.dataoceanai.codebasekotlin.fragments.sort.list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +11,7 @@ import com.dataoceanai.malllibrary.net.RestClient
 import com.dataoceanai.malllibrary.net.callback.ISuccess
 
 class VerticalListFragment : MallFragment() {
-
+    private val TAG = "VerticalListFragment"
     internal lateinit var mRecyclerView : RecyclerView
 
     override fun setLayout(): Any {
@@ -31,7 +32,7 @@ class VerticalListFragment : MallFragment() {
             .loader(context)
             .success(object : ISuccess {
                 override fun onSuccess(response: String) {
-
+                    Log.d(TAG, "onSuccess: $response")
                 }
 
             })

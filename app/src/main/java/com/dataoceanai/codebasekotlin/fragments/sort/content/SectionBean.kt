@@ -4,10 +4,10 @@ class SectionBean{
 
     private var header: String = ""
     private var isHeader: Boolean = false
-    var isMore = false
-    var id = -1
+    private var isMore = false
+    private var id = -1
 
-    var sectionContentItemEntity: SectionContentItemEntity? = null
+    private var sectionContentItemEntity: SectionContentItemEntity? = null
     constructor(sectionContentItemEntity: SectionContentItemEntity){
         this.sectionContentItemEntity = sectionContentItemEntity
     }
@@ -17,4 +17,43 @@ class SectionBean{
         this.header = header
     }
 
+    fun getheader():String{
+        return header;
+    }
+
+    fun setheader(header: String){
+        this.header = header
+    }
+
+    fun getIsHeader():Boolean{
+        return isHeader;
+    }
+
+    fun setIsHeader(isHeader: Boolean){
+        this.isHeader = isHeader
+    }
+
+    fun getIsMore():Boolean{
+        return isMore;
+    }
+
+    fun setIsMore(isMore: Boolean){
+        this.isMore = isMore
+    }
+
+    fun getId():Int{
+        return id;
+    }
+
+    fun setId(id: Int){
+        this.id = id
+    }
+
+    fun getSectionContentItemEntity(): SectionContentItemEntity? {
+        return sectionContentItemEntity;
+    }
+
+    fun setSectionContentItemEntity(sectionContentItemEntity: SectionContentItemEntity){
+        this.sectionContentItemEntity = sectionContentItemEntity
+    }
 }

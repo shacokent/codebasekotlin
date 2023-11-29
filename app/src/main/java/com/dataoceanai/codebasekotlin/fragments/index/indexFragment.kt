@@ -16,6 +16,7 @@ import com.dataoceanai.malllibrary.net.callback.ISuccess
 import com.dataoceanai.malllibrary.ui.recycler.MultipleFields
 import com.dataoceanai.malllibrary.ui.recycler.MultipleRecyclerAdapter
 import com.mall.example.fragments.index.IndexDataConverter
+import com.mall.example.fragments.sort.content.SectionDataConverter
 import com.mall.library.ui.recycler.BaseDecoration
 
 class indexFragment : BottomItemFragment() {
@@ -53,14 +54,15 @@ class indexFragment : BottomItemFragment() {
                 override fun onSuccess(response: String) {
                     Log.d(TAG, "onSuccess: $response")
 //                    response返回的数据参考libs中的responseData.json
-                    val adapter = MultipleRecyclerAdapter.create(IndexDataConverter().setJsonData(response))
+                    val responsedata = IndexDataConverter().setJsonData(response)
+                    val adapter = MultipleRecyclerAdapter.create(responsedata)
                     mRecyclerView.adapter = adapter
 
                     //设置SpanSizeLookup宽度监听，根据MultipleFields.SPAN_SIZE决定item的大小自动布局
                     val manager = GridLayoutManager(context,4)
                     manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                         override fun getSpanSize(position: Int): Int {
-                            return IndexDataConverter().setJsonData(response).convert().get(position).getField(
+                            return responsedata.convert().get(position).getField(
                                 MultipleFields.SPAN_SIZE)
                         }
                     }

@@ -20,8 +20,8 @@ class SectionDataConverter {
 
             //具体点初始化title(section)
             val sectionTitleBean = SectionBean(true, title)
-            sectionTitleBean.id = id
-            sectionTitleBean.isMore = true
+            sectionTitleBean.setId(id)
+            sectionTitleBean.setIsMore(true)
             dataList.add(sectionTitleBean)
 
             val goods = data.getJSONArray("goods")

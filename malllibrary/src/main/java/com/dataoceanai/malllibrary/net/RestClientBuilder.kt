@@ -1,6 +1,7 @@
 package com.dataoceanai.malllibrary.net
 
 import android.content.Context
+import android.util.Log
 import com.dataoceanai.malllibrary.net.callback.*
 import java.util.WeakHashMap
 
@@ -20,6 +21,7 @@ class RestClientBuilder(
     private val mParams = WeakHashMap<String,Any>()
     fun url(url:String):RestClientBuilder{
         this.url = url
+        Log.d("RestClientBuilder", "onSuccess: $url")
         return this
     }
 

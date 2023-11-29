@@ -67,6 +67,7 @@ open class MultipleRecyclerAdapter(data: List<MultipleItemEntity>) :
                 // 使用GridLayoutManager时，此类型的 item 是否是满跨度
                 return true;
             }
+
         }).addItemType(ItemType.IMAGE, object : OnMultiItemAdapterListener<MultipleItemEntity, ItemMImageVH> { // 类型 2
             override fun onCreate(context: Context, parent: ViewGroup, viewType: Int): ItemMImageVH {
                 // 创建 viewholder
