@@ -6,9 +6,11 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dataoceanai.codebasekotlin.R
+import com.dataoceanai.codebasekotlin.fragments.sort.sortFragment
 import com.dataoceanai.malllibrary.fragments.MallFragment
 import com.dataoceanai.malllibrary.net.RestClient
 import com.dataoceanai.malllibrary.net.callback.ISuccess
+import com.mall.example.fragments.sort.list.SortRecyclerAdapter
 
 class VerticalListFragment : MallFragment() {
     private val TAG = "VerticalListFragment"
@@ -33,9 +35,15 @@ class VerticalListFragment : MallFragment() {
             .success(object : ISuccess {
                 override fun onSuccess(response: String) {
                     Log.d(TAG, "onSuccess: $response")
+                    val responsedata = VirticalListDataConvertor().setJsonData(response).convert()
+                    val adapter =  SortRecyclerAdapter(
+                        responsedata, parentFragment as sortFragment
+                    )
+                    mRecyclerView.adapter = adapter
                 }
-
             })
+            .build()
+            .get()
     }
 
 }

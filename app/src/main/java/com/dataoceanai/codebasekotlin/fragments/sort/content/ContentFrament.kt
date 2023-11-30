@@ -5,15 +5,11 @@ import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dataoceanai.codebasekotlin.R
 import com.dataoceanai.malllibrary.fragments.MallFragment
 import com.dataoceanai.malllibrary.net.RestClient
 import com.dataoceanai.malllibrary.net.callback.ISuccess
-import com.dataoceanai.malllibrary.ui.recycler.MultipleFields
-import com.mall.example.fragments.index.IndexDataConverter
 import com.mall.example.fragments.sort.content.SectionAdapter
-import com.mall.example.fragments.sort.content.SectionBean
 import com.mall.example.fragments.sort.content.SectionDataConverter
 
 class ContentFrament : MallFragment() {
@@ -48,6 +44,12 @@ class ContentFrament : MallFragment() {
 
     override fun onBindView(savedInstanceState: Bundle?, rootView: View) {
         mRecyclerView = findView(R.id.rv_list_content)
+        //初始化数据
+//        initData()
+    }
+
+    override fun onLazyInitView(savedInstanceState: Bundle?) {
+        super.onLazyInitView(savedInstanceState)
         //初始化数据
         initData()
     }
